@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ihotel;
+package Principal;
+
+import Principal.Menu;
 
 /**
  *
- * @author HARDWARE-01
+ * @author CLAUDIO
  */
-public class Teste {
+public class Main {
     
+    public static void main(String[] args) {
+        new Menu().setVisible(true);
+    }
 }
