@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class fquartos {
     private Conexao mysql = new Conexao();
-    private Connection cn = mysql.conectar();
+    private Connection cn = mysql.AbrirConexao();
     private String sSQL = "";
     public int totalregistros;
     
@@ -91,16 +91,34 @@ public class fquartos {
             pst.setDouble(5, dts.getValordiaria());
             pst.setString(6, dts.getEstado());
             pst.setString(7, dts.getTipoquarto());
+            pst.setInt(8, dts.getIdquartos());
+            
+            int n = pst.executeUpdate();
+            if(n!=0){
+                return true;
+            }else{
+                return false;
+            }
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
+            return false;
         }
     }
     
     public boolean deletar(vquartos dts){
+        sSQL = "delete from tb_quartos where id_quartos=?";
         try {
-            
+            PreparedStatement pst = cn.prepareStatement(sSQL);
+            pst.setInt(1, dts.getIdquartos());
+            int n = pst.executeUpdate();
+            if(n!=0){
+                return true;
+            }else{
+                return false;
+            }
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
+            return false;
         }
     }
 }

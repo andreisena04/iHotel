@@ -7,31 +7,32 @@ package Logica;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
  */
 public class Conexao {
-    public String db = "iHotel";
-    public String url = "jdbc:mysql://" + db;
-    public String user = "root";
-    public String pass = "root";
+    public static Connection AbrirConexao(){
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://127.0.0.1:3333/ihotel";
+            con = DriverManager.getConnection(url,"root", "root");
+            String s = "";
+            JOptionPane.showMessageDialog(null, "Deu Certo!" );       
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco ","ihotel", JOptionPane.ERROR_MESSAGE );
+        }
+        return con;
+    }
     
-    public Conexao(){
-
-}
-
-    public Connection conectar(){
-        Connection link = null;
-        try{
-            Class.forName("org.gjt.mm.mysql.Driver");
-            link = DriverManager.getConnection(this.url, this.user, this.pass);
+    public static void FecharConexao(Connection con){
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
         }
-        catch(SQLException e){
-            JOptionPane.showConfirmDialog(null, e);
-        }
-        return link;
+        
     }
 }
 

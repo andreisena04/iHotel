@@ -32,7 +32,7 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_numero = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        CB_andar = new javax.swing.JComboBox<>();
+        CB_andar = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_descricao = new javax.swing.JTextArea();
@@ -42,20 +42,20 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txt_valor = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        CB_estado = new javax.swing.JComboBox<>();
+        CB_estado = new javax.swing.JComboBox<String>();
         jLabel10 = new javax.swing.JLabel();
-        CB_tipo = new javax.swing.JComboBox<>();
+        CB_tipo = new javax.swing.JComboBox<String>();
         btn_cancelar = new javax.swing.JButton();
         btn_novo = new javax.swing.JButton();
         btn_salvar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TB_lista = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         txt_pesquisar = new javax.swing.JTextField();
-        btn_novo1 = new javax.swing.JButton();
-        btn_salvar1 = new javax.swing.JButton();
-        btn_cancelar1 = new javax.swing.JButton();
+        btn_buscar = new javax.swing.JButton();
+        btn_apagar = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -72,7 +72,7 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Andar:");
 
-        CB_andar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        CB_andar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         CB_andar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_andarActionPerformed(evt);
@@ -101,7 +101,7 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Estado:");
 
-        CB_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponível", "Ocupado", "Em Manutenção" }));
+        CB_estado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Disponível", "Ocupado", "Em Manutenção" }));
         CB_estado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_estadoActionPerformed(evt);
@@ -111,7 +111,7 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Tipo de Quarto:");
 
-        CB_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Duplo", "Triplo", "Luxo", " " }));
+        CB_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Individual", "Duplo", "Triplo", "Luxo", " " }));
         CB_tipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_tipoActionPerformed(evt);
@@ -210,7 +210,7 @@ public class frm_quartos extends javax.swing.JFrame {
                     .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TB_lista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -221,24 +221,24 @@ public class frm_quartos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(TB_lista);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Pesquisar:");
 
         txt_pesquisar.setText("jTextField1");
 
-        btn_novo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_novo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/application_form_magnify.png"))); // NOI18N
-        btn_novo1.setText("Buscar");
+        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/application_form_magnify.png"))); // NOI18N
+        btn_buscar.setText("Buscar");
 
-        btn_salvar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_salvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/bullet_red.png"))); // NOI18N
-        btn_salvar1.setText("Apagar");
+        btn_apagar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_apagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/bullet_red.png"))); // NOI18N
+        btn_apagar.setText("Apagar");
 
-        btn_cancelar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_cancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/bullet_go.png"))); // NOI18N
-        btn_cancelar1.setText("Sair");
+        btn_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/icons/bullet_go.png"))); // NOI18N
+        btn_sair.setText("Sair");
 
         jLabel11.setText("Registros");
 
@@ -252,11 +252,11 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_novo1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_salvar1)
+                .addComponent(btn_apagar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_cancelar1)
+                .addComponent(btn_sair)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -270,9 +270,9 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txt_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_novo1)
-                    .addComponent(btn_salvar1)
-                    .addComponent(btn_cancelar1))
+                    .addComponent(btn_buscar)
+                    .addComponent(btn_apagar)
+                    .addComponent(btn_sair))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -371,12 +371,13 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_andar;
     private javax.swing.JComboBox<String> CB_estado;
     private javax.swing.JComboBox<String> CB_tipo;
+    private javax.swing.JTable TB_lista;
+    private javax.swing.JButton btn_apagar;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
-    private javax.swing.JButton btn_cancelar1;
     private javax.swing.JButton btn_novo;
-    private javax.swing.JButton btn_novo1;
+    private javax.swing.JButton btn_sair;
     private javax.swing.JButton btn_salvar;
-    private javax.swing.JButton btn_salvar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -393,7 +394,6 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea txt_carac;
     private javax.swing.JTextArea txt_descricao;
     private javax.swing.JTextField txt_numero;
